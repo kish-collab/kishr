@@ -149,6 +149,11 @@
                                 const expirationTime = now.getTime() + 6 * 60 * 60 * 1000;
                                 
                                 var name=document.getElementById('name').value
+
+                                if (!/^[a-zA-Z\s]+$/.test(name)) {
+
+                                      return alert('enter valid')
+                                }
                                 var id=document.getElementById('id').value
                             
                                 var email=document.getElementById('email').value
