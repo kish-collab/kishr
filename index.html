@@ -80,7 +80,7 @@
   
 <center>
               <h1>Enter Details</h1>
-              <form >
+              <form onsubmit="collect()">
 
                 <label>Employee Name &nbsp;&nbsp;<input type="text" id="name" placeholder="enter the name" required/></label>
                 <br></br>
@@ -97,7 +97,7 @@
                 <label>is Wheel Chair support Needed? &nbsp;&nbsp;<select id="chair" required><option value="">Select the option</option><option value="Yes">Yes</option><option value="No">No</option></select></label>
                  <br>
                  <br>
-                <button onclick="collect()">Submit</button>
+                <button >Submit</button>
               </form>
               <br>
                  <br>
@@ -109,6 +109,11 @@
                  <br>
                  <br>
                  <div id="view"></div>
+                 <br>
+                 <br>
+                 <br>
+                 <button onclick="edit()"id="Edit">EDIT</button>
+                 <div id="Editt"></div>
                 </center>
 
               <script>
@@ -257,6 +262,240 @@
                              table.appendChild(tbody)
                              ui.appendChild(table)
                                  
+                            }
+
+                            function  edit()
+                            {
+
+                              var di=document.getElementById('Editt')
+
+                              var form =document.createElement('form')
+                              di.appendChild(form)
+                            
+                              var br2=document.createElement('br')
+                              var br3=document.createElement('br')
+                              var labelname=document.createElement('label')
+                              labelname.textContent='Employee Name'
+                              var input1=document.createElement('input')
+                              input1.type='text'
+                              input1.id='editname'
+                              input1.placeholder='enter the name'
+                              form.appendChild(br2)
+                              form.appendChild(br3)
+                              form.appendChild(labelname)
+                              form.appendChild(input1)
+
+                              var br=document.createElement('br')
+                              var br1=document.createElement('br')
+                              form.appendChild(br)
+                              form.appendChild(br1)
+                              var labelid=document.createElement('label')
+                              labelid.textContent='Employee ID'
+                              var input2=document.createElement('input')
+                              input2.type='text'
+                              input2.id='editid'
+                              input2.placeholder='enter the id'
+                              form.appendChild(labelid)
+                              form.appendChild(input2)
+
+
+                              var br4=document.createElement('br')
+                              var br5=document.createElement('br')
+                              form.appendChild(br4)
+                              form.appendChild(br5)
+                              var labelemail=document.createElement('label')
+                              labelemail.textContent='Employee Email'
+                              var input3=document.createElement('input')
+                              input3.type='email'
+                              input3.id='editemail'
+                              input3.placeholder='enter the email'
+                              form.appendChild(labelemail)
+                              form.appendChild(input3)
+
+
+                              var br56=document.createElement('br')
+                              var br57=document.createElement('br')
+                              form.appendChild(br56)
+                              form.appendChild(br57)
+                              var labelphno=document.createElement('label')
+                              labelphno.textContent='Employee phno'
+                              var input36=document.createElement('input')
+                              input36.type='number'
+                              input36.id='editphno'
+                              input36.placeholder='enter the phone number'
+                              
+                              form.appendChild(labelphno)
+                              form.appendChild(input36)
+
+
+                              var br6=document.createElement('br')
+                              var br7=document.createElement('br')
+                              form.appendChild(br6)
+                              form.appendChild(br7)
+                              var labelcountry=document.createElement('label')
+                              labelcountry.textContent='Employee Country'
+                              var input4=document.createElement('select')
+                               input4.id='editcountry'
+                               var option1=document.createElement('option')
+                               var option2=document.createElement('option')
+                               var option3=document.createElement('option')
+                               option1.value=''
+                               option1.textContent='select the option'
+                               option2.value='USA'
+                               option2.textContent='USA'
+                               option3.value='INDIA'
+                               option3.textContent='INDIA'
+                               input4.appendChild(option1)
+                               input4.appendChild(option2)
+                               input4.appendChild(option3)
+                               form.appendChild(labelcountry)
+                               form.appendChild(input4)
+
+                              
+
+                              var br8=document.createElement('br')
+                              var br9=document.createElement('br')
+                              form.appendChild(br8)
+                              form.appendChild(br9)
+                              var labelstate=document.createElement('label')
+                              labelstate.textContent='Employee State'
+                              var input5=document.createElement('select')
+                               input5.id='editstate'
+                               var option4=document.createElement('option')
+                              
+                               option4.value=''
+                               option4.textContent='select the option'
+                               input5.appendChild(option4)
+                               
+
+                              
+                              form.appendChild(labelstate)
+                              form.appendChild(input5)
+                              var ins = document.getElementById('editcountry')
+                              ins.addEventListener('change',function(event)
+                              {
+                                var i=document.getElementById('editcountry').value
+
+                                var stateSelect = document.getElementById('editstate');
+                                var usaStates = ['New York', 'California', 'Texas']; 
+                                var indiaStates = ['Delhi', 'Mumbai', 'Bangalore']; 
+                                stateSelect.innerHTML = '<option value="">select the option</option>';
+                                if (i === 'USA') {
+                        usaStates.forEach(function(state) {
+                                    var option = document.createElement('option');
+                                    option.textContent = state;
+                                    option.value = state;
+                                    stateSelect.appendChild(option);
+                                                            });
+                                        } else if (i === 'INDIA') {
+                                            indiaStates.forEach(function(state) {
+                                            var option = document.createElement('option');
+                                            option.textContent = state;
+                                            option.value = state;
+                                            stateSelect.appendChild(option);
+                                            });
+                                             }
+                              })
+                               
+
+
+
+                              var br10=document.createElement('br')
+                              var br11=document.createElement('br')
+                              form.appendChild(br10)
+                              form.appendChild(br11)
+                              var labelwheel=document.createElement('label')
+                              labelwheel.textContent='is Wheel chair Need'
+                              var input6=document.createElement('select')
+                               input6.id='editwheel'
+                               var option10=document.createElement('option')
+                               var option20=document.createElement('option')
+                               var option30=document.createElement('option')
+                               option10.value=''
+                               option10.textContent='select the option'
+                               option20.value='Yes'
+                               option20.textContent='Yes'
+                               option30.value='No'
+                               option30.textContent='No'
+                               input6.appendChild(option10)
+                               input6.appendChild(option20)
+                               input6.appendChild(option30)
+                               form.appendChild(labelwheel)
+                               form.appendChild(input6)
+
+
+
+
+                               var br12=document.createElement('br')
+                              var br13=document.createElement('br')
+                              form.appendChild(br12)
+                              form.appendChild(br13)
+
+                              var bu=document.createElement('button')
+                              bu.textContent='submit'
+                              bu.id='editbutton'
+
+
+                              form.appendChild(bu)
+
+
+                              form.addEventListener('submit',function(event)
+                              {
+                                var name=document.getElementById('editname').value
+                                var id=document.getElementById('editid').value
+                            
+                                var email=document.getElementById('editemail').value
+                                var phno=document.getElementById('editphno').value
+                                var country=document.getElementById('editcountry') .value
+                                var state=document.getElementById('editstate').value
+                               var wheel=document.getElementById('editwheel').value
+
+
+                               if(localStorage.getItem(id))
+                               {
+
+                                     var dat=JSON.parse(localStorage.getItem(id))
+                                     const now = new Date();
+                                     if(now.getTime>dat.expiry)
+                                     {
+                                          return alert('time has been expired')
+                                     }
+                                     else
+                                     {
+
+                                      const data={
+                                name:name,
+                                id:id,
+                                email:email,
+                                phno:phno,
+                                country:country,
+                                state:state,
+                                wheel:wheel
+                               }
+                               const item = {
+                                value: data,
+                                expiry: dat.expiry,
+                                };
+                                            localStorage.setItem(dat.value.id,JSON.stringify(item))  
+                                      
+                                     }
+                               }
+
+                                       
+                              })
+                               
+
+
+                               
+
+                             
+
+                           
+
+
+
+
+                               
                             }
                 </script>
 
